@@ -1,52 +1,46 @@
 <script setup lang="ts" generic="T extends any, O extends any">
-import { GamePlay } from '~/composables/gobang'
-
 defineOptions({
   name: 'IndexPage',
 })
 
-const play = new GamePlay()
+const name = $ref('')
+
+const router = useRouter()
+const go = () => {
+  if (name)
+    router.push(`/hi/${encodeURIComponent(name)}`)
+}
 </script>
 
 <template>
   <div>
-    <div flex="~ gap1" py5 items-center justify-center>
-      <button btn @click="play.reset()">
-        Player First
-      </button>
-      <button btn @click="play.reset(false)">
-        Computer First
-      </button>
-    </div>
+    <div i-carbon-campsite text-4xl inline-block />
+    <p>
+      <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
+        Vitesse Lite
+      </a>
+    </p>
+    <p>
+      <em text-sm op75>Opinionated Vite Starter Template</em>
+    </p>
 
-    <div flex="~ gap1" py5 items-center justify-center>
-      <button btn @click="play.reset(undefined, false)">
-        New Game
-      </button>
-    </div>
+    <div py-4 />
 
-    <div border py5 class="chessboard">
-      <div
-        v-for="row, y in play.board"
-        :key="y"
-        flex="~"
-        items-center justify-center
+    <TheInput
+      v-model="name"
+      placeholder="What's your name?"
+      autocomplete="false"
+      @keydown.enter="go"
+    />
+
+    <div>
+      <button
+        class="m-3 text-sm btn"
+        :disabled="!name"
+        @click="go"
       >
-        <ChessPiece
-          v-for="block, x in row"
-          :key="x"
-          :block="block"
-          @click="play.state.value.manMachine ? play.playerTurn(block) : play.onClick(block)"
-        />
-      </div>
+        Go
+      </button>
     </div>
-
-    <Confetti :passed="play.state.value.status === 'won'" />
   </div>
 </template>
-
-<style scoped>
-.chessboard {
-  background: url(../images/chessboard.png) no-repeat center;
-}
-</style>
