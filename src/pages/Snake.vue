@@ -23,7 +23,7 @@ function newGame(difficulty: 'easy' | 'medium' | 'hard') {
 </script>
 
 <template>
-  <div flex="~ gap1" py5 items-center justify-center>
+  <div flex="~ gap1" items-center justify-center py5>
     <button btn @click="play.reset()">
       New Game
     </button>
@@ -46,8 +46,7 @@ function newGame(difficulty: 'easy' | 'medium' | 'hard') {
       <td
         v-for="block, x in row"
         :key="x"
-        w6 h6
-        border
+        h6 w6 border
         :class="block.status"
       >
       <!-- {{ block.x }},{{ block.y }} -->

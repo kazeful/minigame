@@ -163,7 +163,7 @@ function getLetterColor(letter: string, index: number) {
 <!-- (Class | Attribute) => Typography => Inherited attribute => Non-inherited attribute -->
 <template>
   <div
-    class="h-100vh justify-center items-center"
+    class="h-100vh items-center justify-center"
     flex="~"
     font="mono"
     bg-gradient="from-#1e2530 to-#11151c to-tr"
@@ -188,12 +188,12 @@ function getLetterColor(letter: string, index: number) {
         </div>
       </div>
       <div
-        class="h-325px w-230px relative of-hidden"
+        class="relative h-325px w-230px of-hidden"
         m="t-50px"
         border="l-5 #222a38"
       >
         <div
-          class="top-137px absolute size-0"
+          class="absolute top-137px size-0"
           border="y-transparent y-13 l-13 l-#222a38"
           animated="fade-in duration-1s"
         />
@@ -220,12 +220,12 @@ function getLetterColor(letter: string, index: number) {
     </div>
 
     <div
-      class="justify-center items-center"
+      class="items-center justify-center"
       flex="~ col"
       m="t--25"
     >
       <div
-        class="relative justify-center items-center size-350px"
+        class="relative items-center justify-center size-350px"
         flex="~"
         bg="#11151c"
         border="rounded-1/2"
@@ -233,7 +233,7 @@ function getLetterColor(letter: string, index: number) {
       >
         <div
           v-for="index in 4" :key="index" ref="quarters"
-          class="top-0 left-0 absolute size-175px"
+          class="absolute left-0 top-0 size-175px"
           bg="#11151c"
           border="rounded-tl-175px t-5 l-5 #00FF00"
           transform="rotate--90 origin-bottom-right"
@@ -273,7 +273,7 @@ function getLetterColor(letter: string, index: number) {
         <input
           ref="elInput"
           v-model="inputValue"
-          class="cursor-pointer outline-none w-100"
+          class="w-100 cursor-pointer outline-none"
           p="y-14px x-12px"
           font="bold tracking-0.7px"
           text="black center 18px"
@@ -326,7 +326,7 @@ function getLetterColor(letter: string, index: number) {
       </div>
     </div>
     <div
-      class="right-50px bottom-10px absolute"
+      class="absolute bottom-10px right-50px"
       font="bold tracking-1px"
       text="14px white/60"
     >

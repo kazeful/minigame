@@ -10,7 +10,7 @@ const play = new GamePlay()
 
 <template>
   <div>
-    <div flex="~ gap1" py5 items-center justify-center>
+    <div flex="~ gap1" items-center justify-center py5>
       <button btn @click="play.reset()">
         Player First
       </button>
@@ -19,7 +19,7 @@ const play = new GamePlay()
       </button>
     </div>
 
-    <div flex="~ gap1" py5 items-center justify-center>
+    <div flex="~ gap1" items-center justify-center py5>
       <button btn @click="play.reset(undefined, false)">
         New Game
       </button>

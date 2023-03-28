@@ -51,9 +51,7 @@ watch(() => isEmpty, () => {
 
 <template>
   <div
-    w-9
-    h-9
-    cursor-pointer
+    h-9 w-9 cursor-pointer
     :class="getPieceClass(block)"
     @mouseenter="handleEnter(block)"
     @mouseleave="handleLeave(block)"
