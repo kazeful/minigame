@@ -1,14 +1,15 @@
 /// <reference types="vitest" />
 
-import path from 'path'
+import path from 'node:path'
 import { defineConfig } from 'vite'
+import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
+import VueMacros from 'unplugin-vue-macros/vite'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
 
 export default defineConfig({
   resolve: {
@@ -17,11 +18,11 @@ export default defineConfig({
     },
   },
   plugins: [
+    ReactivityTransform(),
+
     VueMacros({
       plugins: {
-        vue: Vue({
-          reactivityTransform: true,
-        }),
+        vue: Vue(),
         vueJsx: VueJsx(),
       },
     }),
@@ -33,7 +34,6 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        'vue/macros',
         'vue-router',
         '@vueuse/core',
       ],
