@@ -163,7 +163,7 @@ function getLetterColor(letter: string, index: number) {
 <!-- (Class | Attribute) => Typography => Inherited attribute => Non-inherited attribute -->
 <template>
   <div
-    class="h-100vh items-center justify-center"
+    class="h-screen items-center justify-center"
     flex="~"
     font="mono"
     bg-gradient="from-#1e2530 to-#11151c to-tr"
