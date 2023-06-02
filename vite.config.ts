@@ -3,7 +3,6 @@
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Pages from 'vite-plugin-pages'
@@ -20,12 +19,15 @@ export default defineConfig({
   plugins: [
     ReactivityTransform(),
 
-    VueMacros({
-      plugins: {
-        vue: Vue(),
-        vueJsx: VueJsx(),
+    Vue({
+      // reactivityTransform: true, // Deprecated Experimental Feature
+      script: {
+        propsDestructure: true,
+        defineModel: true,
       },
     }),
+
+    VueJsx(),
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages(),
