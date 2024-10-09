@@ -229,7 +229,7 @@ function getLetterColor(letter: string, index: number) {
         flex="~"
         bg="#11151c"
         border="rounded-1/2"
-        shadow="black/50 [2px,10px,30px]"
+        shadow="extra"
       >
         <div
           v-for="index in 4" :key="index" ref="quarters"
@@ -243,7 +243,7 @@ function getLetterColor(letter: string, index: number) {
         <div
           class="absolute size-75"
           border="rounded-1/2 1 black/10"
-          shadow="black/10 [0,0,6]"
+          ring="black/10 6px"
           :class="{
             bouncy: animation.bouncy,
           }"
@@ -279,7 +279,7 @@ function getLetterColor(letter: string, index: number) {
           text="black center 18px"
           bg="#222a38 focus:white/85"
           border="rounded-30px none"
-          shadow="black/50 [2px,10px,30px]"
+          shadow="extra"
           transition="colors"
           animated="zoom-in duration-1s"
           type="text"
@@ -342,7 +342,7 @@ function getLetterColor(letter: string, index: number) {
 @import '~/styles/animation.css';
 
 .active {
-  @apply font-bold text-white text-25px text-opacity-70;
+  @apply font-bold text-white/70 text-25px;
 }
 
 .wheel1 {
